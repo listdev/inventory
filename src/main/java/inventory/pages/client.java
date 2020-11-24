@@ -18,20 +18,19 @@ public class client {
     public client() {
         button1.addActionListener(new ActionListener() {
 
-            @Override
             public void actionPerformed(ActionEvent e) {
                 JTextField[] fields = {name, surname};
                 if(Validator.validateTextFields(fields)) {
                     try{
                         String query = " insert into clients (first_name, last_name)" + " values (?, ?)";
 
-                        // create the mysql insert preparedstatement
+                        // create the mysql insert prepared statement
                         PreparedStatement preparedStmt = DB.con.prepareStatement(query);
                         System.out.println(preparedStmt.toString());
                         preparedStmt.setString (1, name.getText());
                         preparedStmt.setString (2, surname.getText());
 
-                        // execute the preparedstatement
+                        // execute the prepared statement
                         preparedStmt.execute();
                     } catch(Exception ex){ ex.printStackTrace(); }
 

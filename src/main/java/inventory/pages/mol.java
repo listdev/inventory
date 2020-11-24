@@ -17,7 +17,6 @@ public class mol{
 
     public mol() {
         button1.addActionListener(new ActionListener() {
-            @Override
             public void actionPerformed(ActionEvent e) {
                 JTextField[] fields = {name, surname};
                 if(Validator.validateTextFields(fields)) {

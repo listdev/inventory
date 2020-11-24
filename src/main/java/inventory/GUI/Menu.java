@@ -27,7 +27,7 @@ public class Menu {
         menu_users.add(new JMenuItem(new ActionHandler("Регистриране на клиент")));
 
         menu_products.add(new JMenuItem(new ActionHandler("Регистриране на продукт")));
-        menu_products.add(new JMenuItem(new ActionHandler("Регистриране на продукт към клиент")));
+        /* menu_products.add(new JMenuItem(new ActionHandler("Регистриране на продукт към клиент"))); */
         menu_products.add(new JMenuItem(new ActionHandler("Бракуване")));
 
         menu_checks.add(new JMenuItem("Списък клиенти"));
@@ -58,14 +58,16 @@ class ActionHandler extends AbstractAction {
         super(text);
     }
 
-    @Override
     public void actionPerformed(ActionEvent e) {
         Content content = new Content();
-        if(e.getActionCommand() == "Регистриране на клиент") {
+        if(e.getActionCommand().equals("Регистриране на клиент")) {
             content.set(new client().get_panel(), e.getActionCommand());
         }
-        else if(e.getActionCommand() == "Регистриране на продукт") {
+        else if(e.getActionCommand().equals("Регистриране на продукт")) {
             content.set(new product().get_panel(), e.getActionCommand());
+        }
+        else if(e.getActionCommand().equals("Всички продукти")) {
+            content.set(new products().get_panel(), e.getActionCommand());
         }
         else {
             content.set(new mol().get_panel(), e.getActionCommand());
